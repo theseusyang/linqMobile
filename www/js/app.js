@@ -1,9 +1,5 @@
-// Ionic Starter App
+// Ionic Linq App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
 angular.module('linq', [
   'ionic', 
   'angularLoad', 
@@ -282,12 +278,10 @@ angular.module('linq', [
   };
 
   var getMeasurement = function( id ){
-    var matchingValue = null
+    var matchingValue = null;
     angular.forEach( measurements, function( measurement, index ){
-      console.log(measurement.id + " vs "+ id);
       if ( measurement.id === id ){
         matchingValue = measurement;
-        console.log('match');
       }
     });
     return matchingValue;
@@ -324,7 +318,6 @@ angular.module('linq', [
       measurement.connecting = true;
     });
     omhAPIservice.getMeasurements( ['withings'] ).then( function( value ) { 
-      // console.log( value );
 
       // handle the date windowing -- currently the date range is
       // resized to the actual range that comes back from the server

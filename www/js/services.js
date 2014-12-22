@@ -16,8 +16,8 @@ angular.module('linq.services', [])
   // some placeholder information
   omhAPI.getReadingBounds = function( readingLabel ) {
     return {
-      systolic_blood_pressure: { min: 90, max: 250, thresh: 118 },
-      diastolic_blood_pressure: { min: 20, max: 50, thresh: 80 },
+      systolic_blood_pressure: { min: 90, max: 150, thresh: 118 },
+      diastolic_blood_pressure: { min: 20, max: 90, thresh: 80 },
       body_weight: { min: 5, max: 600, thresh: 200 },
       heart_rate: { min: 20, max: 240, thresh: 90 }
     }[ readingLabel ];
@@ -27,7 +27,6 @@ angular.module('linq.services', [])
   // goals from a server, but for now it's just 
   // some placeholder information
   omhAPI.getMeasurementGoal = function( measurementId ) {
-    console.log('get goal '+measurementId);
     return {
       blood_pressure: { description: 'daily in the AM for 3 months starting 6/12/14 with Mike McConnell.', value: 'under 140/90' },
       body_weight: { description: 'daily starting 6/12/14 with Mike McConnell.', value: 'under 46 kg' },
