@@ -1,0 +1,37 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" width="245">
+    <ion-header-bar>
+      <div class="app-title">Linq</div>
+      <linq-user-badge></linq-user-badge>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item nav-clear menu-close href="#/app/home">
+          <img src="img/ui/home_2.png" />Home
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/plan">
+          <img src="img/ui/list_2.png" />Plan
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/appsAndDevices">
+          <img src="img/ui/link.png" />Apps & Devices
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/settings">
+          <img src="img/ui/gear_2.png" />Settings
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

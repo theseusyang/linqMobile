@@ -1,0 +1,17 @@
+<ion-view view-title="Linq">
+  <ion-content>
+    <div class="connect-note" ng-if="!connected()">
+      Below are the things you’ve decided to track - please connect to an app or device for each one.
+    </div>
+    <div class="date-range-header" ng-if="connected()">
+      Your information for the week of:
+      <div class="date-range-selector">
+        <div class="previous-range" ng-click="nextDateRange()"></div>
+        {{selectedDateRange.start}} - {{selectedDateRange.end}},{{selectedDateRange.year}}
+        <div class="next-range" ng-click="previousDateRange()"></div>
+      </div>
+    </div>
+    <measurement-list-item ng-repeat="measurement in measurements"/>
+  </ion-content>
+</ion-view>
+

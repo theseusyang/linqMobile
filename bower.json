@@ -1,0 +1,11 @@
+{
+  "name": "linq",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
+  },
+  "dependencies": {
+    "Chart.js": "~0.2.0",
+    "angular-load": "~0.2.0"
+  }
+}

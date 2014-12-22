@@ -1,0 +1,19 @@
+<div class="measurement-list-item">
+  <div class="measurement-heading {{measurement.id}}" ui-sref="app.measurement( { id: measurement.id } )">
+    <div class="measurement-badge"></div>
+    {{measurement.name}}
+    <div class="measurement-avg" ng-if="measurement.avg">
+      AVG<span measurement-alert class="measurement-avg-value">{{measurement.avg}}</span>
+    </div>
+  </div>
+  <div class="measurement-connect {{measurement.id}}" ng-if="!measurement.connected&&!measurement.connecting">
+    <a href="/home/connect:{{measurement.id}}">Connect app or device</a>
+  </div>
+  <div class="measurement-connecting {{measurement.id}}" ng-if="measurement.connecting">
+    <loading-indicator></loading-indicator>
+    (Getting information from {{measurement.api}})
+  </div>
+  <div class="measurement-data {{measurement.id}}" ng-if="measurement.connected">
+    <measurement-chart></measurement-chart>
+  </div>
+</div>

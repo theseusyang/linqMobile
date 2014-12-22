@@ -1,0 +1,274 @@
+{
+  "shim" : "withings",
+  "timeStamp" : 1419215900,
+  "body" : {
+    "heart_rate" : [ {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-30T04:02:20.000Z"
+      },
+      "heart_rate" : {
+        "value" : 96,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-25T16:19:43.000Z"
+      },
+      "heart_rate" : {
+        "value" : 63,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-22T20:27:17.000Z"
+      },
+      "heart_rate" : {
+        "value" : 115,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-16T15:22:31.000Z"
+      },
+      "heart_rate" : {
+        "value" : 68,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-15T20:45:24.000Z"
+      },
+      "heart_rate" : {
+        "value" : 94,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-15T20:44:14.000Z"
+      },
+      "heart_rate" : {
+        "value" : 69,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-15T20:28:25.000Z"
+      },
+      "heart_rate" : {
+        "value" : 63,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-12T18:06:21.000Z"
+      },
+      "heart_rate" : {
+        "value" : 86,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-04T14:39:18.000Z"
+      },
+      "heart_rate" : {
+        "value" : 62,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-11-04T14:38:14.000Z"
+      },
+      "heart_rate" : {
+        "value" : 64,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-10-28T03:12:47.000Z"
+      },
+      "heart_rate" : {
+        "value" : 84,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-10-22T02:34:47.000Z"
+      },
+      "heart_rate" : {
+        "value" : 94,
+        "unit" : "beats/min"
+      }
+    }, {
+      "effective_time_frame" : {
+        "date_time" : "2014-10-22T02:34:16.000Z"
+      },
+      "heart_rate" : {
+        "value" : 92,
+        "unit" : "beats/min"
+      }
+    } ],
+    "blood_pressure" : [ {
+      "systolic_blood_pressure" : {
+        "value" : 109,
+        "unit" : "mmHg"
+      },
+      "diastolic_blood_pressure" : {
+        "value" : 77,
+        "unit" : "mmHg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-25T16:19:43.000Z"
+      }
+    }, {
+      "systolic_blood_pressure" : {
+        "value" : 126,
+        "unit" : "mmHg"
+      },
+      "diastolic_blood_pressure" : {
+        "value" : 87,
+        "unit" : "mmHg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-15T20:45:24.000Z"
+      }
+    }, {
+      "systolic_blood_pressure" : {
+        "value" : 120,
+        "unit" : "mmHg"
+      },
+      "diastolic_blood_pressure" : {
+        "value" : 75,
+        "unit" : "mmHg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-15T20:44:14.000Z"
+      }
+    }, {
+      "systolic_blood_pressure" : {
+        "value" : 136,
+        "unit" : "mmHg"
+      },
+      "diastolic_blood_pressure" : {
+        "value" : 79,
+        "unit" : "mmHg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-15T20:28:25.000Z"
+      }
+    }, {
+      "systolic_blood_pressure" : {
+        "value" : 110,
+        "unit" : "mmHg"
+      },
+      "diastolic_blood_pressure" : {
+        "value" : 76,
+        "unit" : "mmHg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-04T14:39:18.000Z"
+      }
+    }, {
+      "systolic_blood_pressure" : {
+        "value" : 123,
+        "unit" : "mmHg"
+      },
+      "diastolic_blood_pressure" : {
+        "value" : 79,
+        "unit" : "mmHg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-04T14:38:14.000Z"
+      }
+    }, {
+      "systolic_blood_pressure" : {
+        "value" : 111,
+        "unit" : "mmHg"
+      },
+      "diastolic_blood_pressure" : {
+        "value" : 84,
+        "unit" : "mmHg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-10-22T02:34:47.000Z"
+      }
+    }, {
+      "systolic_blood_pressure" : {
+        "value" : 119,
+        "unit" : "mmHg"
+      },
+      "diastolic_blood_pressure" : {
+        "value" : 74,
+        "unit" : "mmHg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-10-22T02:34:16.000Z"
+      }
+    } ],
+    "body_weight" : [ {
+      "body_weight" : {
+        "value" : 48.3419999999999987494447850622236728668212890625,
+        "unit" : "kg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-30T04:02:20.000Z"
+      }
+    }, {
+      "body_weight" : {
+        "value" : 47.78500000000000369482222595252096652984619140625,
+        "unit" : "kg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-25T19:44:14.000Z"
+      }
+    }, {
+      "body_weight" : {
+        "value" : 47.2229999999999989768184605054557323455810546875,
+        "unit" : "kg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-22T20:27:17.000Z"
+      }
+    }, {
+      "body_weight" : {
+        "value" : 47.63300000000000267164068645797669887542724609375,
+        "unit" : "kg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-16T15:22:31.000Z"
+      }
+    }, {
+      "body_weight" : {
+        "value" : 47.44200000000000017053025658242404460906982421875,
+        "unit" : "kg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-12T18:06:21.000Z"
+      }
+    }, {
+      "body_weight" : {
+        "value" : 48.5919999999999987494447850622236728668212890625,
+        "unit" : "kg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-11-06T04:18:59.000Z"
+      }
+    }, {
+      "body_weight" : {
+        "value" : 45.78800000000000380850906367413699626922607421875,
+        "unit" : "kg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-10-28T03:12:47.000Z"
+      }
+    }, {
+      "body_weight" : {
+        "value" : 47.1820000000000021600499167107045650482177734375,
+        "unit" : "kg"
+      },
+      "effective_time_frame" : {
+        "date_time" : "2014-10-22T12:12:15.000Z"
+      }
+    } ],
+    "body_height" : [ ]
+  }
+}

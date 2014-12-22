@@ -1,0 +1,33 @@
+<ion-view view-title="{{measurement.name}}">
+  <ion-content>
+    <div class="link-note" ng-if="!measurement.connected">
+      <div class="prompt">To see your past and current {{measurement.name}} readings here:</div>
+      <a>Link App or Device</a>
+    </div>
+    <div class="date-range-header" ng-if="measurement.connected">
+      <div class="date-range-selector">
+        <div class="previous-range" ng-click="nextDateRange()"></div>
+        Week: {{selectedDateRange.start}} - {{selectedDateRange.end}},{{selectedDateRange.year}}
+        <div class="next-range" ng-click="previousDateRange()"></div>
+      </div>
+    </div>
+    <div class="measurement-details" ng-if="measurement.connected">
+      <div class="measurement-data {{measurement.id}}" ng-if="measurement.connected">
+        <measurement-chart></measurement-chart>
+      </div>
+    </div>
+
+    <div class="measurement-list-item measurement-plan" >
+      <div class="measurement-heading {{measurement.id}}">
+        <div class="measurement-badge"></div>
+        Plan
+      </div>
+      <div class="plan-description">
+        I am tracking Blood Pressure daily in the AM for 3 months starting 6/12/14 with Mike McConnell.
+      </div>
+      <linq-user-badge></linq-user-badge>
+      <span class="goal">Goal</span> under 140/90
+    </div>
+
+  </ion-content>
+</ion-view>

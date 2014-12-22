@@ -1,0 +1,454 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+@import url("opensans.css");
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+$view-scale: 0.5;
+
+$bar-title-font-size:             $view-scale * 36px;
+
+$light-gray: #f0f3f4;
+$med-gray: #E1E6E9;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+@import "scss/loading.dots.scss";
+
+.bar.bar-stable .title {
+  font-weight: bold;
+  margin-top: 18px;
+}
+
+.bar .button.button-icon .icon:before,
+.bar .button.button-icon:before,
+.bar .button.button-icon.icon-left:before,
+.bar .button.button-icon.icon-right:before {
+  font-size: 30px !important;
+  content: "\f20d";
+  margin-left: 5px;
+}
+.bar .button-icon.button,
+.bar .button-icon.button {
+  margin-top: 20px;
+}
+.bar.bar-stable {
+  background: #FFFFFF;
+  border: 1px solid #A9ABB1;
+}
+
+$menuLeftMargin: 18px;
+.menu-left {
+  .item {
+    font-family: OpenSans;
+    font-size: $view-scale * 36px;
+    color: #4A4A4A;
+    letter-spacing: $view-scale * 0.74px;
+    line-height: $view-scale * 49px;
+    // height: $view-scale * 160px;
+    .item-content {
+      padding-top: 26px;
+      padding-left: $menuLeftMargin;
+      padding-right: 0;
+      padding-bottom: 28px;
+      width: auto;
+    }
+    img {
+      width: $view-scale * 50px;
+      height: $view-scale * 50px;
+      margin-right: 16px;
+      margin-top: -2px;
+      display: block;
+      float: left;
+    }
+  }
+  .bar-header {
+    position: relative;
+    height: $view-scale * 205px;
+    padding: 0;
+    .app-title {
+      display: block;
+      width: $view-scale * 106px;
+      font-family: OpenSans;
+      font-size: $view-scale * 40px;
+      color: #A9ABB1;
+      letter-spacing: $view-scale * 0.83px;
+      line-height: $view-scale * 55px;
+      margin-top: 40px;
+      margin-left: $menuLeftMargin;
+    }
+  }
+  .has-header {
+    top: $view-scale * 205px;
+  }
+}
+
+$mainHeaderHeight: $view-scale * 140px;
+.bar-stable .bar-header {
+  height: $mainHeaderHeight;
+}
+.has-header {
+  top: $mainHeaderHeight;
+}
+
+.dumbell {
+  width: 150px;
+  .initials {
+    font-family: OpenSans-Bold;
+    font-size: $view-scale * 48px;
+    color: #84A7B3;
+    letter-spacing: $view-scale * 1.98px;
+    line-height: $view-scale * 65px;
+    text-transform: uppercase;
+    height: $view-scale * 100px;
+    width: $view-scale * 100px;
+    border-radius: 25px;
+    padding-top: 9px;
+    background: #F0F3F4;
+    text-align: center;
+    float: left;
+  }
+  .seperation-bar {
+    background: #F0F3F4;
+    height: 6px;
+    width: $view-scale * 46px;
+    margin-top: 22px;
+    float: left;
+  }
+  .user-image {
+    float: left;
+    height: $view-scale * 100px;
+    width: $view-scale * 100px;
+    border-radius: 25px;
+    overflow: clip;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.bar.bar-header .dumbell {
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+
+.pane {
+  background: $light-gray;
+}
+
+.bar .buttons span.back-text {
+  display: none;
+}
+
+.back-button {
+  margin-top: 15px;
+  margin-left: 8px;
+}
+
+.bar .button.button-clear .icon:before,
+.bar .button.button-clear.icon:before,
+.bar .button.button-clear.icon-left:before,
+.bar .button.button-clear.icon-right:before {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 20px;
+  display: block;
+  content: " ";
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: $view-scale/1.5 * 20px;
+  height: $view-scale/1.5 * 32px;
+  opacity: 0.5;
+}
+
+.connect-note {
+  margin-top: 15px;
+  background: #D6E4E9;
+  padding: 30px;
+  text-align: center;
+  font-family: OpenSans;
+  font-size: $view-scale * 32px;
+  color: #364558;
+  letter-spacing: $view-scale * 0.66px;
+  line-height: $view-scale * 40px;
+  .measurement-name {
+    font-family: OpenSans-Bold;
+  }
+}
+.date-range-header {
+  margin-top: 15px;
+  padding: 0;
+  text-align: center;
+  font-family: OpenSans;
+  font-size: $view-scale * 26px;
+  color: #A9ABB1;
+  line-height: $view-scale * 41px;
+  text-transform: uppercase;
+  .date-range-selector {
+    margin-top: 12px;
+    background: #fff;
+    font-family: OpenSans;
+    font-size: $view-scale * 30px;
+    color: #4A4A4A;
+    line-height: $view-scale * 41px;
+    padding: 18px;
+    text-transform: none;
+    position: relative;
+    .previous-range {
+      @extend .nav-arrow;
+      left: 20px;
+      width: $view-scale * 20px;
+      height: $view-scale * 32px;
+      background-image: url('../img/ui/navigate-left5.png');
+      opacity: 1;
+      -webkit-appearance: none;
+    }
+    .next-range {
+      @extend .nav-arrow;
+      right: 20px;
+      width: $view-scale * 20px;
+      height: $view-scale * 32px;
+      background-image: url('../img/ui/navigate-right9.png');
+      opacity: 1;
+    }
+  }
+}
+
+@mixin transform($trans){
+  transform: $trans;
+  -webkit-transform: $trans;
+}
+
+@mixin badge($url) {
+  position: absolute;
+  left: 50%;
+  @include transform(translate(-50%, 0));
+  top: -45px;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  border: 5px solid $med-gray;
+  border-radius: 25px;
+  overflow: clip;
+  background-color: #fff;
+  &:before {
+    display: block;
+    content: " ";
+    background-image: $url;
+    background-size: 25px 25px;
+    background-position: center 9px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+  }
+}
+
+
+.measurement-list-item {
+  margin-top: 50px;
+  padding: 20px;
+  padding-bottom: 0;
+  background: #fff;
+  border: 1px solid #E1E6E9;
+  box-shadow: 0px $view-scale *2px $view-scale *2px 0px #E1E6E9;
+  border-radius: $view-scale *4px;
+  .measurement-heading {
+    position: relative;
+    font-family: OpenSans-Bold;
+    font-size:  $view-scale *30px;
+    text-transform: uppercase;
+    color: #000000;
+    letter-spacing:  $view-scale *3.08px;
+    line-height:  $view-scale *41px;
+    border-bottom: 1px solid $med-gray;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    text-align: center;
+    &:after{
+      @extend .nav-arrow;
+      right: 0;
+      background-image: url('../img/ui/navigate-right9.png');
+      width: $view-scale/1.5 * 20px;
+      height: $view-scale/1.5 * 32px;
+      opacity: 0.5;
+    }
+    &.blood-pressure .measurement-badge{
+      @include badge(url('../img/measure_icons/blood_pressure.svg'));
+    }
+    &.heart-rate .measurement-badge{
+      @include badge(url('../img/measure_icons/heart-rate.svg'));
+    }
+    &.body-weight .measurement-badge{
+      @include badge(url('../img/measure_icons/weight.svg'));
+    }
+    &.activity .measurement-badge{
+      @include badge(url('../img/measure_icons/activity.svg'));
+    }
+    .measurement-avg {
+      font-family: OpenSans-Light;
+      font-size: $view-scale *30px;
+      color: #A9ABB1;
+      letter-spacing: $view-scale *1.42px;
+      line-height: $view-scale *41px;
+      margin-top: 5px;
+      .measurement-avg-value{
+        color: #84A7B3;
+        font-weight: bold;
+        display: inline-block;
+        margin-left: 5px;
+      }
+    }
+  }
+  .measurement-connect {
+    text-align: center;
+    a{
+      /* Connect app or devic: */
+      font-family: OpenSans;
+      font-size: $view-scale * 30px;
+      color: #3E8AA6;
+      line-height: $view-scale * 41px;
+      text-decoration: none;
+      display: block;
+      padding: 25px;
+    }
+  }
+  .measurement-connecting {
+    text-align: center;
+    width: 100%;
+    font-family: OpenSans;
+    font-size: $view-scale *24px;
+    color: #A9ABB1;
+    line-height: $view-scale *41px;
+    padding-bottom: 40px;
+    .loading_dots {
+      margin: 25px auto 15px auto;
+    }
+  }
+  .measurement-data {
+    width: 100%;
+    display: block;
+    canvas {
+      margin-left: -22px;
+    }
+  }
+}
+
+.measurement-avg-value.measurement-alert {
+  color: #CC6E4B !important;
+}
+
+.measurement-details {
+  background-color: #fff;
+}
+
+.link-note {
+  margin-top: 15px;
+  background: #fff;
+  padding: 30px;
+  text-align: center;
+  font-family: OpenSans-Light;
+  font-size: $view-scale * 30px;
+  color: #4A4A4A;
+  letter-spacing: $view-scale * 0.66px;
+  line-height: $view-scale * 41px;
+  a {
+    background: #3E8AA6;
+    border: 1px solid #3E8AA6;
+    border-radius:  $view-scale * 40px;
+    font-family: OpenSans;
+    font-size:  $view-scale * 34px;
+    color: #FFFFFF;
+    line-height:  $view-scale * 46px;
+    display: block;
+    padding: 10px 0 10px 0;
+    width: $view-scale * 482px;
+    margin: 37px auto 0 auto;
+  }
+  .prompt {
+    width: $view-scale * 450px;
+    margin: 15px auto 0 auto;
+    text-align: center;
+  }
+}
+
+.measurement-plan {
+  text-align: center;
+  font-family: OpenSans;
+  font-size: $view-scale * 30px;
+  letter-spacing:  $view-scale * 1.23px;
+  line-height:  $view-scale * 41px;
+  color: #474948;
+  padding-bottom: 30px;
+  .plan-description {
+    padding: 10px 0 20px 0;
+    font-family: OpenSans;
+    font-size: $view-scale * 30px;
+    color: #4A4A4A;
+    line-height:  $view-scale * 41px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .measurement-heading {
+    border: none;
+    &:after {
+      display: none;
+    }
+  }
+  .dumbell{
+    margin: 0 auto 20px auto;
+    &:after {
+      content: " ";
+      display: table;
+      clear: both;
+      height: 0;
+    }
+  }
+  .goal {
+    position: relative;
+    display: inline-block;
+    font-family: OpenSans;
+    font-size: $view-scale * 30px;
+    color: #A7AEB2;
+    letter-spacing: $view-scale * 1.23px;
+    line-height: $view-scale * 41px;
+    text-transform: uppercase;
+    &:before {
+      content: " ";
+      width: 10px;
+      height: 10px;
+      display: block;
+      position: absolute;
+      left: -15px;
+      top: 6px;
+      background: #84A7B3;
+      border-radius: 5px;
+    }
+  }
+}
+
+
+
