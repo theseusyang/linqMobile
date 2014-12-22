@@ -319,7 +319,10 @@ angular.module('linq', [
     return selectedDateRange;
   };
 
-  var updateMeasurements = function( $scope ){
+  var updateMeasurements = function( callback ){
+    angular.forEach( measurements, function( measurement, index ){
+      measurement.connecting = true;
+    });
     omhAPIservice.getMeasurements( ['withings'] ).then( function( value ) { 
       // console.log( value );
 
@@ -352,7 +355,7 @@ angular.module('linq', [
           }
         });
       });
-      console.log(measurements);
+      if ( callback ) callback();
     });  
   };
 
@@ -361,21 +364,21 @@ angular.module('linq', [
     { name: 'Blood Pressure',
       id: 'blood-pressure',
       connected: false,
-      connecting: true,
+      connecting: false,
       empty: true,
       api: 'withings'
     },
     { name: 'Heart Rate',
       id: 'heart-rate',
       connected: false,
-      connecting: true,
+      connecting: false,
       empty: true,
       api: "withings"
     },
     { name: 'Weight',
       id: 'body-weight',
       connected: false,
-      connecting: true,
+      connecting: false,
       empty: true,
       api: "withings"
     },
@@ -394,7 +397,7 @@ angular.module('linq', [
     year: '2014'
   };
 
-  updateMeasurements();
+  //updateMeasurements();
 
   return {
     updateMeasurements: updateMeasurements,

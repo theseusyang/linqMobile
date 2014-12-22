@@ -7496,7 +7496,8 @@ a.button {
     display: block;
     padding: 10px 0 10px 0;
     width: 241px;
-    margin: 37px auto 0 auto; }
+    margin: 37px auto 0 auto;
+    text-decoration: none; }
   .link-note .prompt {
     width: 225px;
     margin: 15px auto 0 auto;

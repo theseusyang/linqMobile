@@ -17,19 +17,27 @@ angular.module('linq.controllers', [])
     });
     return connected;
   };
-
+  $scope.connect = function(){
+    measurementService.updateMeasurements();
+  };
+  // let the service manage the measurements
   $scope.selectedDateRange = measurementService.getSelectedDateRange();
   $scope.measurements = measurementService.getMeasurements();
-
-  //measurementService.updateMeasurements( );
-
 })
 .controller('MeasurementCtrl', function($scope, $state, $stateParams, measurementService) {
-    console.log("entered measurement");
-    $scope.measurement = measurementService.getMeasurement( $stateParams.id );
-    if( $scope.measurement && $scope.measurement.connected ){
-      $scope.selectedDateRange = measurementService.getAbbreviatedDateStrings( $scope.measurement );
-    }
+  $scope.connect = function(){
+    measurementService.updateMeasurements( function(){
+      $scope.measurement = measurementService.getMeasurement( $stateParams.id );
+      if( $scope.measurement && $scope.measurement.connected ){
+        $scope.selectedDateRange = measurementService.getAbbreviatedDateStrings( $scope.measurement );
+      }
+    } );
+  };
+  // let the service manage the measurements
+  $scope.measurement = measurementService.getMeasurement( $stateParams.id );
+  if( $scope.measurement && $scope.measurement.connected ){
+    $scope.selectedDateRange = measurementService.getAbbreviatedDateStrings( $scope.measurement );
+  }
 })
 .controller('AppsAndDevicesCtrl', function($scope) {
 

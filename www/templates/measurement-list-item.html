@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="measurement-connect {{measurement.id}}" ng-if="!measurement.connected&&!measurement.connecting">
-    <a href="/home/connect:{{measurement.id}}">Connect app or device</a>
+    <a href="#" ng-click="connect()">Connect app or device</a>
   </div>
   <div class="measurement-connecting {{measurement.id}}" ng-if="measurement.connecting">
     <loading-indicator></loading-indicator>

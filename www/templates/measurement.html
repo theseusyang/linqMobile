@@ -2,7 +2,7 @@
   <ion-content>
     <div class="link-note" ng-if="!measurement.connected">
       <div class="prompt">To see your past and current {{measurement.name}} readings here:</div>
-      <a>Link App or Device</a>
+      <a href="#" ng-click="connect()">Link App or Device</a>
     </div>
     <div class="date-range-header" ng-if="measurement.connected">
       <div class="date-range-selector">
@@ -26,10 +26,10 @@
         Plan
       </div>
       <div class="plan-description">
-        I am tracking Blood Pressure daily in the AM for 3 months starting 6/12/14 with Mike McConnell.
+        I am tracking {{measurement.name}} {{measurement.goal.description}}
       </div>
       <linq-user-badge></linq-user-badge>
-      <span class="goal">Goal</span> under 140/90
+      <span class="goal">Goal</span> {{measurement.goal.value}}
     </div>
 
     <div class="reading-list-header" ng-if="measurement.connected">MOST RECENT</div>
