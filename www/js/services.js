@@ -15,8 +15,9 @@ angular.module('linq.services', [])
   // ranges and thresholds from a server, but for now it's just 
   // some placeholder information
   omhAPI.getReadingBounds = function( readingLabel ) {
+    console.log(readingLabel);
     return {
-      systolic_blood_pressure: { min: 90, max: 300, thresh: 118 },
+      systolic_blood_pressure: { min: 90, max: 250, thresh: 118 },
       diastolic_blood_pressure: { min: 20, max: 100, thresh: 80 },
       body_weight: { min: 5, max: 600, thresh: 200 },
       heart_rate: { min: 20, max: 240, thresh: 90 }
@@ -64,24 +65,30 @@ angular.module('linq.services', [])
                   alertFlag: false,
                   valueCount: '',
                   data: [],
+                  readings: [],
                   dataTypes: [],
                   dateStart: '',
                   dateEnd: ''
                 };
 
+                //prepare some reading date-objects for use later on
+                angular.forEach( readings, function( reading, readingIndex ) {
+                  reading.date = new Date( reading.effective_time_frame.date_time );
+                });
+                
                 // sort the readings by the time when their effective time frame
                 readings.sort( function( a, b ) {
-                  var dateA = new Date(a.effective_time_frame.date_time);
-                  var dateB = new Date(b.effective_time_frame.date_time);
-                  return dateA.getTime() - dateB.getTime();
+                  return a.date.getTime() - b.date.getTime();
                 });
-                measurement.dateStart = new Date( readings[0].effective_time_frame.date_time );
-                measurement.dateEnd = new Date( readings[ readings.length-1 ].effective_time_frame.date_time );
+                measurement.dateStart = readings[0].date;
+                measurement.dateEnd = readings[ readings.length-1 ].date;
                 
                 // populate the datasets in the measurement with the reading values
                 angular.forEach( readings, function( reading, readingIndex ) {
+
+                  // prepare the data array for the charts
                   angular.forEach( reading, function( datum, label ) {
-                    if ( label !== 'effective_time_frame' ) {
+                    if ( label !== 'effective_time_frame' && label !== 'date' ) {
                       var datasetIndex = measurement.dataTypes.indexOf( label );
                       if ( datasetIndex >= 0 ) {
                         // push the value onto an existing dataset of the same type 
@@ -102,6 +109,22 @@ angular.module('linq.services', [])
                       }
                     }
                   });
+
+                  // prepare display values
+                  if ( measurement.id === 'blood-pressure' ) {
+                    reading.displayValue = reading.systolic_blood_pressure.value +'/'+reading.diastolic_blood_pressure.value;
+                  } else {
+                    var decimalFixed = ( measurement.id === 'body-weight' )? reading[key].value.toFixed(1) : reading[key].value;
+                    reading.displayValue = decimalFixed +" "+ reading[key].unit;
+                  }
+
+                  // prepare display date and time
+                  reading.displayDate = reading.date.toString().match( /^\w+\s(\w+\s\d+)\s(\d+)/ )[1];
+                  reading.displayTime = formatAMPM( reading.date );
+                  reading.alertFlag = false;
+                  
+                  measurement.readings.push(reading);
+
                 });
 
                 // compute averages, alerts and value counts
@@ -111,22 +134,27 @@ angular.module('linq.services', [])
                   averages.push(0);
                   angular.forEach( dataset.values, function( value, valueIndex ){
                     averages[ datasetIndex ] += value;
+                    if ( value > dataset.thresh ){
+                      measurement.readings[ valueIndex ].alertFlag = true;
+                    }
                   });
                   averages[ datasetIndex ] /= dataset.values.length;
                   // set value count to the dataset length that is the greatest
-                  if ( dataset.values.length > valueCount ) valueCount = dataset.values.length;
+                  if ( dataset.values.length > valueCount ){
+                    valueCount = dataset.values.length;
+                  }
                   // fire an alert if the average is higher than the safe threshold
-                  if ( averages[ datasetIndex ] > dataset.thresh ) measurement.alertFlag = true;
+                  if ( averages[ datasetIndex ] > dataset.thresh ){
+                    measurement.alertFlag = true;
+                  }
                 });
 
                 if ( measurement.id === 'blood-pressure' ){
                   // blood pressure has a special notation with two values
                   // this should be improved to actually make sure they are int he right order
                   measurement.avg = Math.round(averages[0])+'/'+Math.round(averages[1]);
-                } else if ( measurement.id === 'body-weight' ) {
-                  measurement.avg = Math.round(averages[0]) + measurement.data[0].unit;
                 } else {
-                  measurement.avg = Math.round(averages[0]);
+                  measurement.avg = Math.round(averages[0]) + measurement.data[0].unit;
                 }
 
                 measurement.valueCount = valueCount;
@@ -148,28 +176,20 @@ angular.module('linq.services', [])
 
 });
 
-
-/*
-
-                  {
-                    label: "Systolic",
-                    max: 300,
-                    thresh: 180,
-                    min: 50,
-                    values: [180, 300, 300, 180, 300, 160, 120]
-                  },
-                  {
-                    label: "Diastolic",
-                    max: 200,
-                    thresh: 80,
-                    min: 10,
-                    values: [28, 48, 100, 19, 80, 27, 50]
-                  }
-
-*/
-
+// some utility functions to help with parsing
 function toTitleCase(str)
 {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
 }
 

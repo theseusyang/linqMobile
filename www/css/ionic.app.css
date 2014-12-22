@@ -7375,18 +7375,6 @@ a.button {
         width: 100%;
         height: 100%;
         opacity: 0.3; }
-    .measurement-list-item .measurement-heading .measurement-avg {
-      font-family: OpenSans-Light;
-      font-size: 15px;
-      color: #A9ABB1;
-      letter-spacing: 0.71px;
-      line-height: 20.5px;
-      margin-top: 5px; }
-      .measurement-list-item .measurement-heading .measurement-avg .measurement-avg-value {
-        color: #84A7B3;
-        font-weight: bold;
-        display: inline-block;
-        margin-left: 5px; }
   .measurement-list-item .measurement-connect {
     text-align: center; }
     .measurement-list-item .measurement-connect a {
@@ -7414,11 +7402,78 @@ a.button {
     .measurement-list-item .measurement-data canvas {
       margin-left: -22px; }
 
-.measurement-avg-value.measurement-alert {
-  color: #CC6E4B !important; }
+.measurement-avg {
+  text-align: center;
+  font-family: OpenSans-Light;
+  font-size: 15px;
+  color: #A9ABB1;
+  letter-spacing: 0.71px;
+  line-height: 20.5px;
+  margin-top: 5px; }
+  .measurement-avg .measurement-avg-value {
+    color: #84A7B3;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 5px; }
+
+.measurement-alert {
+  color: #CC6E4B !important;
+  font-family: OpenSans-Bold; }
 
 .measurement-details {
-  background-color: #fff; }
+  border-top: 1px solid #E1E6E9;
+  background: #fff; }
+  .measurement-details .measurement-avg {
+    margin-top: 0;
+    padding-top: 15px; }
+
+.reading-list-header {
+  font-family: OpenSans-Bold;
+  font-size: 15px;
+  color: #4A4A4A;
+  line-height: 20.5px;
+  text-align: center;
+  background: #fff;
+  margin-top: 40px;
+  padding: 15px; }
+  .reading-list-header:after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #E1E6E9;
+    position: relative;
+    bottom: -15px; }
+
+.reading-list-item {
+  font-family: OpenSans-Light;
+  font-size: 24.19px;
+  color: #84A7B3;
+  letter-spacing: 0.73px;
+  line-height: 33px;
+  background-color: #fff;
+  padding: 10px;
+  position: relative; }
+  .reading-list-item:after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #E1E6E9;
+    position: relative;
+    bottom: -10px; }
+  .reading-list-item .date, .reading-list-item .time {
+    font-family: OpenSans;
+    font-size: 12px;
+    color: #A9ABB1;
+    letter-spacing: 0.495px;
+    line-height: 16.5px;
+    display: block; }
+  .reading-list-item .date-time {
+    text-align: right;
+    float: right; }
+  .reading-list-item .time {
+    color: #474948; }
 
 .link-note {
   margin-top: 15px;

@@ -248,7 +248,20 @@ angular.module('linq', [
       restrict: 'A',
       transclude: false,
       link: function( scope, element, attrs ){
-        if (scope.alertStatus(scope.measurement)){
+        if (scope.measurement.alertFlag){
+          element.addClass('measurement-alert');
+        } else {
+          element.removeClass('measurement-alert');
+        }
+      }
+    };
+})
+.directive('readingAlert', function() {
+    return {
+      restrict: 'A',
+      transclude: false,
+      link: function( scope, element, attrs ){
+        if (scope.reading.alertFlag){
           element.addClass('measurement-alert');
         } else {
           element.removeClass('measurement-alert');

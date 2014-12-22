@@ -308,20 +308,6 @@ $mainHeaderHeight: $view-scale * 140px;
     &.activity .measurement-badge{
       @include badge(url('../img/measure_icons/activity.svg'));
     }
-    .measurement-avg {
-      font-family: OpenSans-Light;
-      font-size: $view-scale *30px;
-      color: #A9ABB1;
-      letter-spacing: $view-scale *1.42px;
-      line-height: $view-scale *41px;
-      margin-top: 5px;
-      .measurement-avg-value{
-        color: #84A7B3;
-        font-weight: bold;
-        display: inline-block;
-        margin-left: 5px;
-      }
-    }
   }
   .measurement-connect {
     text-align: center;
@@ -357,12 +343,88 @@ $mainHeaderHeight: $view-scale * 140px;
   }
 }
 
-.measurement-avg-value.measurement-alert {
+.measurement-avg {
+  text-align: center;
+  font-family: OpenSans-Light;
+  font-size: $view-scale *30px;
+  color: #A9ABB1;
+  letter-spacing: $view-scale *1.42px;
+  line-height: $view-scale *41px;
+  margin-top: 5px;
+  .measurement-avg-value{
+    color: #84A7B3;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 5px;
+  }
+}
+
+.measurement-alert {
   color: #CC6E4B !important;
+  font-family: OpenSans-Bold;
 }
 
 .measurement-details {
+  border-top: 1px solid #E1E6E9;
+  background: #fff;
+  .measurement-avg {
+    margin-top: 0;
+    padding-top: 15px;
+  }
+}
+
+.reading-list-header{
+  font-family: OpenSans-Bold;
+  font-size: $view-scale * 30px;
+  color: #4A4A4A;
+  line-height: $view-scale * 41px;
+  text-align: center;
+  background: #fff;
+  margin-top: 40px;
+  padding: 15px;
+  &:after{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #E1E6E9;
+    position: relative;
+    bottom: -15px;
+  }
+}
+.reading-list-item{
+  font-family: OpenSans-Light;
+  font-size: $view-scale * 48.38px;
+  color: #84A7B3;
+  letter-spacing: $view-scale * 1.46px;
+  line-height: $view-scale * 66px;
   background-color: #fff;
+  padding: 10px;
+  position: relative;
+  &:after{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #E1E6E9;
+    position: relative;
+    bottom: -10px;
+  }
+  .date, .time{
+    font-family: OpenSans;
+    font-size: $view-scale * 24px;
+    color: #A9ABB1;
+    letter-spacing: $view-scale * 0.99px;
+    line-height: $view-scale * 33px;
+    display: block;
+  }
+  .date-time {
+    text-align: right;
+    float: right;
+  }
+  .time {
+    color: #474948;
+  }
 }
 
 .link-note {

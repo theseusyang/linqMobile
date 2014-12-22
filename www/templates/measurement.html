@@ -12,6 +12,9 @@
       </div>
     </div>
     <div class="measurement-details" ng-if="measurement.connected">
+      <div class="measurement-avg" ng-if="measurement.avg">
+        AVG<span measurement-alert class="measurement-avg-value">{{measurement.avg}}</span>
+      </div>
       <div class="measurement-data {{measurement.id}}" ng-if="measurement.connected">
         <measurement-chart></measurement-chart>
       </div>
@@ -28,6 +31,17 @@
       <linq-user-badge></linq-user-badge>
       <span class="goal">Goal</span> under 140/90
     </div>
+
+    <div class="reading-list-header">MOST RECENT</div>
+    <div class="reading-list-item" ng-repeat="reading in measurement.readings">
+      <span reading-alert>{{reading.displayValue}}</span>
+      <div class='date-time'>
+        <span class='date'>{{reading.displayDate}}</span>
+        <span class='time'>{{reading.displayTime}}</span>
+      </div>
+    </div>
+
+
 
   </ion-content>
 </ion-view>

@@ -17,12 +17,6 @@ angular.module('linq.controllers', [])
     });
     return connected;
   };
-  $scope.alertStatus = function( measurement ){
-    // In here we would do somethign moresophisticated
-    // to determine if the measurement is in a dange zone.
-    // For now, the measurement just has a hard-coded flag
-    return measurement.alertFlag;
-  };
 
   $scope.selectedDateRange = {
     start: 'Sep 12',
@@ -66,25 +60,8 @@ angular.module('linq.controllers', [])
   }
 })
 .controller('AppsAndDevicesCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+
 })
 .controller('SettingsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
 
-// .controller('PlaylistCtrl', function($scope, $stateParams) {
-// });
+});
