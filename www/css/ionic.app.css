@@ -7452,7 +7452,7 @@ a.button {
   letter-spacing: 0.73px;
   line-height: 33px;
   background-color: #fff;
-  padding: 10px;
+  padding: 20px;
   position: relative; }
   .reading-list-item:after {
     content: '';

@@ -29,82 +29,75 @@ angular.module('linq', [
   $stateProvider
 
   .state('app', {
-    url: "/app",
+    url: '/app',
     abstract: true,
-    templateUrl: "templates/menu.html",
+    templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
 
   .state('app.home', {
-    url: "/home",
+    url: '/home',
     views: {
       'menuContent': {
-        templateUrl: "templates/home.html",
+        templateUrl: 'templates/home.html',
         controller: 'HomeCtrl'
       }
     }
   })
 
   .state('app.measurement', {
-    url: "/measurement/:id",
+    url: '/measurement/:id',
     views: {
       'menuContent': {
-        templateUrl: "templates/measurement.html",
+        templateUrl: 'templates/measurement.html',
         controller: 'MeasurementCtrl',
       }
     }
   })
 
   .state('app.detail', {
-    url: "/reading/:reading",
+    url: '/reading/:reading',
     views: {
       'menuContent': {
-        templateUrl: "templates/reading.html",
+        templateUrl: 'templates/reading.html',
         controller: 'MeasurementDetailsCtrl'
       }
     }
   })
 
   .state('app.plan', {
-    url: "/plan",
+    url: '/plan',
     views: {
       'menuContent': {
-        templateUrl: "templates/plan.html"
+        templateUrl: 'templates/plan.html',
+        controller: 'PlanCtrl'
       }
     }
   })
 
   .state('app.appsAndDevices', {
-    url: "/appsAndDevices",
+    url: '/appsAndDevices',
     views: {
       'menuContent': {
-        templateUrl: "templates/apps-and-devices.html",
+        templateUrl: 'templates/apps-and-devices.html',
         controller: 'AppsAndDevicesCtrl'
       }
     }
   })
 
   .state('app.settings', {
-    url: "/settings",
+    url: '/settings',
     views: {
       'menuContent': {
-        templateUrl: "templates/settings.html",
+        templateUrl: 'templates/settings.html',
         controller: 'SettingsCtrl'
       }
     }
   });
 
-  // .state('app.single', {
-  //   url: "/playlists/:playlistId",
-  //   views: {
-  //     'menuContent': {
-  //       templateUrl: "templates/playlist.html",
-  //       controller: 'PlaylistCtrl'
-  //     }
-  //   }
-  //});
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
+
 })
 .directive('measurementChart', [ 'angularLoad', function( angularLoad ) {
     return {
@@ -180,12 +173,6 @@ angular.module('linq', [
 
           scaleLineColor : "rgba(0,0,0,0)",
 
-          // //String - Colour of the grid lines
-          // scaleGridLineColor : "rgba(0,0,0,.05)",
-
-          // //Number - Width of the grid lines
-          // scaleGridLineWidth : 1,
-
           //Boolean - Whether the line is curved between points
           bezierCurve : true,
 
@@ -214,9 +201,6 @@ angular.module('linq', [
 
           //Boolean - Whether to fill the dataset with a colour
           datasetFill : true,
-
-          // //String - A legend template
-          // legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
           
           scaleOverride: true,
 

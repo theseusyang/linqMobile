@@ -15,7 +15,6 @@ angular.module('linq.services', [])
   // ranges and thresholds from a server, but for now it's just 
   // some placeholder information
   omhAPI.getReadingBounds = function( readingLabel ) {
-    console.log(readingLabel);
     return {
       systolic_blood_pressure: { min: 90, max: 250, thresh: 118 },
       diastolic_blood_pressure: { min: 20, max: 100, thresh: 80 },
@@ -24,6 +23,17 @@ angular.module('linq.services', [])
     }[ readingLabel ];
   };
 
+  // in the future this function may actually pull the user's
+  // goals from a server, but for now it's just 
+  // some placeholder information
+  omhAPI.getMeasurementGoal = function( measurementId ) {
+    console.log('get goal '+measurementId);
+    return {
+      blood_pressure: { description: 'daily in the AM for 3 months starting 6/12/14 with Mike McConnell.', value: 'under 140/90' },
+      body_weight: { description: 'daily starting 6/12/14 with Mike McConnell.', value: 'under 46 kg' },
+      heart_rate: { description: 'daily starting 6/12/14 with Mike McConnell.', value: 'under 60 bpm' }
+    }[ measurementId ];
+  };
 
   // This function gets the omh data and parses it into a structure
   // that can be easily used in the views.
@@ -68,8 +78,14 @@ angular.module('linq.services', [])
                   readings: [],
                   dataTypes: [],
                   dateStart: '',
-                  dateEnd: ''
+                  dateEnd: '',
+                  goal: {}
                 };
+
+                console.log('getting goal');
+                console.dir(omhAPI.getMeasurementGoal( key ));
+                measurement.goal = omhAPI.getMeasurementGoal( key );
+
 
                 //prepare some reading date-objects for use later on
                 angular.forEach( readings, function( reading, readingIndex ) {

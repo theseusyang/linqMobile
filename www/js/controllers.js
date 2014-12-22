@@ -62,6 +62,9 @@ angular.module('linq.controllers', [])
 .controller('AppsAndDevicesCtrl', function($scope) {
 
 })
+.controller('PlanCtrl', function($scope, measurementService) {
+  $scope.measurements = measurementService.getMeasurements();
+})
 .controller('SettingsCtrl', function($scope) {
 
 });

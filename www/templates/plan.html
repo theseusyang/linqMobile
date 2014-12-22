@@ -1,5 +1,17 @@
 <ion-view view-title="Plan">
   <ion-content>
-    <h1>Plan</h1>
+    <div ng-repeat="measurement in measurements" >
+      <div class="measurement-list-item measurement-plan" >
+        <div class="measurement-heading {{measurement.id}}">
+          <div class="measurement-badge"></div>
+          Plan
+        </div>
+        <div class="plan-description">
+          I am tracking {{measurement.name}} {{measurement.goal.description}}
+        </div>
+        <linq-user-badge></linq-user-badge>
+        <span class="goal">Goal</span> {{measurement.goal.value}}
+      </div>
+    </div>
   </ion-content>
 </ion-view>
