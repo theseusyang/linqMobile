@@ -7,7 +7,7 @@ angular.module('linq.services', [])
   omhAPI.getData = function( shimName ) {
     return $http({
       method: 'GET', 
-      url: 'http://ec2-54-148-57-68.us-west-2.compute.amazonaws.com:8083/data/withings/body?username=annadph@gmail.com&dateStart=2014-01-01&dateEnd=2014-12-01&normalize=true'
+      url: '/data/body.json' //http://ec2-54-148-57-68.us-west-2.compute.amazonaws.com:8083/data/withings/body?username=annadph@gmail.com&dateStart=2014-01-01&dateEnd=2014-12-01&normalize=true'
     });
   };
 
@@ -17,7 +17,7 @@ angular.module('linq.services', [])
   omhAPI.getReadingBounds = function( readingLabel ) {
     return {
       systolic_blood_pressure: { min: 90, max: 250, thresh: 118 },
-      diastolic_blood_pressure: { min: 20, max: 100, thresh: 80 },
+      diastolic_blood_pressure: { min: 20, max: 50, thresh: 80 },
       body_weight: { min: 5, max: 600, thresh: 200 },
       heart_rate: { min: 20, max: 240, thresh: 90 }
     }[ readingLabel ];
