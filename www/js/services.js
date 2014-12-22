@@ -7,7 +7,7 @@ angular.module('linq.services', [])
   omhAPI.getData = function( shimName ) {
     return $http({
       method: 'GET', 
-      url: '/data/body.json' //http://ec2-54-148-57-68.us-west-2.compute.amazonaws.com:8083/data/withings/body?username=annadph@gmail.com&dateStart=2014-01-01&dateEnd=2014-12-01&normalize=true'
+      url: 'http://ec2-54-148-57-68.us-west-2.compute.amazonaws.com:8083/data/withings/body?username=annadph@gmail.com&dateStart=2014-01-01&dateEnd=2014-12-01&normalize=true'
     });
   };
 

@@ -50,7 +50,7 @@ $med-gray: #E1E6E9;
 }
 .bar.bar-stable {
   background: #FFFFFF;
-  border: 1px solid #A9ABB1;
+  border-bottom: 1px solid $med-gray;
 }
 
 $menuLeftMargin: 18px;
@@ -483,6 +483,7 @@ $mainHeaderHeight: $view-scale * 140px;
   }
   .dumbell{
     margin: 0 auto 20px auto;
+    width: 124px;
     &:after {
       content: " ";
       display: table;

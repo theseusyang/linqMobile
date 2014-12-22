@@ -7104,7 +7104,7 @@ a.button {
 
 .bar.bar-stable {
   background: #FFFFFF;
-  border: 1px solid #A9ABB1; }
+  border-bottom: 1px solid #E1E6E9; }
 
 .menu-left .item {
   font-family: OpenSans;
@@ -7524,7 +7524,8 @@ a.button {
     .measurement-plan .measurement-heading:after {
       display: none; }
   .measurement-plan .dumbell {
-    margin: 0 auto 20px auto; }
+    margin: 0 auto 20px auto;
+    width: 124px; }
     .measurement-plan .dumbell:after {
       content: " ";
       display: table;
