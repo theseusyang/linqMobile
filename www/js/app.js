@@ -272,31 +272,34 @@ angular.module('linq', [
     };
 })
 
-.service('measurementService', function() {
+.service('measurementService', function(omhAPIservice) {
 
-  var measurementHash = {};
+  var measurements = [];
+  var selectedDateRange = {};
 
   var addMeasurement = function( measurement ) {
-    console.log('adding ' + measurement.id);
-    measurementHash[ measurement.id ] = measurement;
+    measurements.push( measurement );
   };
 
   var getMeasurement = function( id ){
-    console.log( measurementHash );
-    return measurementHash[ id ];
+    var matchingValue = null
+    angular.forEach( measurements, function( measurement, index ){
+      console.log(measurement.id + " vs "+ id);
+      if ( measurement.id === id ){
+        matchingValue = measurement;
+        console.log('match');
+      }
+    });
+    return matchingValue;
   };
 
   var getMeasurements = function(){
-    var measurements = [];
-    angular.forEach( measurementHash, function( measurement, index ) {
-       measurements.push( measurement );
-    });
     return measurements;
   };
 
   var getReading = function( id, readingIndex ){
       reading = [];
-      angular.forEach( measurementHash[ id ].data, function( data, dataIndex ){
+      angular.forEach( getMeasurement( id ), function( data, dataIndex ){
         reading.push( data.values[ readingIndex ] );
       });
       return reading;
@@ -310,6 +313,47 @@ angular.module('linq', [
       end: endParts[1],
       year: startParts[2]
     };
+  };
+
+  var getSelectedDateRange = function(){
+    return selectedDateRange;
+  };
+
+  var updateMeasurements = function( $scope ){
+    omhAPIservice.getMeasurements( ['withings'] ).then( function( value ) { 
+      // console.log( value );
+
+      // handle the date windowing -- currently the date range is
+      // resized to the actual range that comes back from the server
+      var earliestMeasurement = value[0];
+      var latestMeasurement = value[0];
+
+      angular.forEach( value, function( newMeasurement, newMeasurementIndex){
+        if ( newMeasurement.dateStart < earliestMeasurement.dateStart ) earliestMeasurement = newMeasurement;
+        if ( newMeasurement.dateEnd > latestMeasurement.dateEnd ) latestMeasurement = newMeasurement;
+      });
+
+      var startDateStrings = getAbbreviatedDateStrings( earliestMeasurement );
+      var endDateStrings = getAbbreviatedDateStrings( latestMeasurement );
+
+      selectedDateRange.start = startDateStrings.start;
+      selectedDateRange.end = endDateStrings.end;
+      selectedDateRange.year = startDateStrings.year;
+
+      // manage the updates to the measurement array so that all views that ref
+      // these measurements will receive the update
+      angular.forEach( measurements, function( measurement, measurementIndex ) {
+        angular.forEach( value, function( newMeasurement, newMeasurementIndex ){
+          if ( measurement.id === newMeasurement.id ) {
+            angular.forEach( newMeasurement, function( value, key ){
+              measurements[ measurementIndex ][key] = value;
+            });
+            measurements[ measurementIndex ].empty = false;
+          }
+        });
+      });
+      console.log(measurements);
+    });  
   };
 
   //add default measurements at start
@@ -344,11 +388,21 @@ angular.module('linq', [
     },
   ], function( measurement, index ){ addMeasurement( measurement ); });
 
+  selectedDateRange = {
+    start: 'Sep 12',
+    end: 'Sep 19',
+    year: '2014'
+  };
+
+  updateMeasurements();
+
   return {
+    updateMeasurements: updateMeasurements,
     addMeasurement: addMeasurement,
     getMeasurement: getMeasurement,
     getMeasurements: getMeasurements,
     getAbbreviatedDateStrings: getAbbreviatedDateStrings,
+    getSelectedDateRange: getSelectedDateRange,
     getReading: getReading
   };
 

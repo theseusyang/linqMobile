@@ -32,7 +32,7 @@
       <span class="goal">Goal</span> under 140/90
     </div>
 
-    <div class="reading-list-header">MOST RECENT</div>
+    <div class="reading-list-header" ng-if="measurement.connected">MOST RECENT</div>
     <div class="reading-list-item" ng-repeat="reading in measurement.readings">
       <span reading-alert>{{reading.displayValue}}</span>
       <div class='date-time'>

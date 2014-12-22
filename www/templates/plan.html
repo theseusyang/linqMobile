@@ -1,7 +1,7 @@
 <ion-view view-title="Plan">
   <ion-content>
     <div ng-repeat="measurement in measurements" >
-      <div class="measurement-list-item measurement-plan" >
+      <div class="measurement-list-item measurement-plan" ng-if="measurement.goal">
         <div class="measurement-heading {{measurement.id}}">
           <div class="measurement-badge"></div>
           Plan

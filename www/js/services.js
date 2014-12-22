@@ -79,12 +79,11 @@ angular.module('linq.services', [])
                   dataTypes: [],
                   dateStart: '',
                   dateEnd: '',
-                  goal: {}
+                  goal: false
                 };
 
-                console.log('getting goal');
-                console.dir(omhAPI.getMeasurementGoal( key ));
-                measurement.goal = omhAPI.getMeasurementGoal( key );
+                var goal = omhAPI.getMeasurementGoal( key );
+                if ( goal ) measurement.goal = goal;
 
 
                 //prepare some reading date-objects for use later on
@@ -159,7 +158,7 @@ angular.module('linq.services', [])
                   if ( dataset.values.length > valueCount ){
                     valueCount = dataset.values.length;
                   }
-                  // fire an alert if the average is higher than the safe threshold
+                  // show an alert if the average is higher than the safe threshold
                   if ( averages[ datasetIndex ] > dataset.thresh ){
                     measurement.alertFlag = true;
                   }
